@@ -1,0 +1,29 @@
+/* ========================================
+   Footer (подвал)
+   ======================================== */
+
+   .course-footer {
+    margin-top: var(--spacing-xxl);
+    padding-top: var(--spacing-lg);
+    border-top: 1px solid var(--color-gray-200);
+    text-align: center;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+}
+
+.course-footer a {
+    color: var(--color-primary);
+}
+
+.course-footer a:hover {
+    text-decoration: underline;
+}
+
+.lesson-footer {
+    margin-top: var(--spacing-xl);
+    padding-top: var(--spacing-lg);
+    border-top: 1px solid var(--color-gray-200);
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    text-align: center;
+}

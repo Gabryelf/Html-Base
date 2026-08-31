@@ -1,477 +1,85 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>NeoCode — главная</title>
-  <!-- Google Fonts + Inter -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
-  <!-- Font Awesome 6 (Free) -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-  <style>
-    /* ===== RESET & BASE ===== */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-      background: #080a12;
-      background-image: radial-gradient(ellipse at 20% 50%, #141b2b 0%, #080a12 70%);
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      padding: 2rem 1.5rem;
-      color: #eef2f6;
-    }
-
-    /* ===== ГЛАВНЫЙ КОНТЕЙНЕР ===== */
-    .app {
-      width: 100%;
-      max-width: 1360px;
-      margin: 0 auto;
-      animation: fadeUp 0.7s ease;
-    }
-
-    @keyframes fadeUp {
-      0% { opacity: 0; transform: translateY(24px); }
-      100% { opacity: 1; transform: translateY(0); }
-    }
-
-    /* ===== ХЕДЕР ===== */
-    .header {
-      text-align: center;
-      margin-bottom: 3.8rem;
-      position: relative;
-    }
-
-    .header .brand {
-      font-size: 3.6rem;
-      font-weight: 800;
-      letter-spacing: -0.03em;
-      background: linear-gradient(135deg, #c7d2fe 0%, #818cf8 50%, #a78bfa 100%);
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-      display: inline-block;
-      text-shadow: 0 0 60px rgba(129, 140, 248, 0.15);
-    }
-
-    .header .brand i {
-      font-size: 2.8rem;
-      margin-right: 6px;
-      background: linear-gradient(135deg, #c7d2fe, #818cf8);
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-    }
-
-    .header .sub {
-      font-size: 1.1rem;
-      color: #94a3b8;
-      margin-top: 0.6rem;
-      font-weight: 400;
-      letter-spacing: 0.4px;
-      background: rgba(255,255,255,0.02);
-      backdrop-filter: blur(6px);
-      padding: 0.5rem 2rem;
-      display: inline-block;
-      border-radius: 60px;
-      border: 1px solid rgba(255,255,255,0.03);
-    }
-
-    .header .sub i {
-      margin-right: 18px;
-      color: #818cf8;
-    }
-
-    /* ===== СЕТКА КАРТОЧЕК ===== */
-    .cards-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-      gap: 2rem;
-      justify-content: center;
-    }
-
-    /* ===== КАРТОЧКА ===== */
-    .course-card {
-      background: rgba(18, 24, 42, 0.6);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
-      border-radius: 2.8rem;
-      padding: 2.2rem 1.8rem 1.8rem;
-      border: 1px solid rgba(255, 255, 255, 0.04);
-      box-shadow: 0 30px 50px -24px rgba(0, 0, 0, 0.9), inset 0 0 0 1px rgba(255, 255, 255, 0.02);
-      transition: all 0.35s cubic-bezier(0.15, 0.75, 0.3, 1);
-      text-decoration: none;
-      color: inherit;
-      display: flex;
-      flex-direction: column;
-      height: 100%;
-      position: relative;
-      cursor: pointer;
-      will-change: transform;
-      overflow: hidden;
-    }
-
-    /* декоративный блик */
-    .course-card::before {
-      content: '';
-      position: absolute;
-      top: -50%;
-      left: -50%;
-      width: 200%;
-      height: 200%;
-      background: radial-gradient(circle at 30% 20%, rgba(129, 140, 248, 0.03), transparent 60%);
-      pointer-events: none;
-      transition: 0.5s;
-    }
-
-    .course-card:hover::before {
-      opacity: 0.6;
-    }
-
-    .course-card:hover {
-      transform: translateY(-12px) scale(1.01);
-      background: rgba(24, 32, 56, 0.75);
-      border-color: rgba(129, 140, 248, 0.25);
-      box-shadow: 0 50px 70px -28px #000000cc, 0 0 0 1px rgba(129, 140, 248, 0.12), 0 0 40px -12px rgba(129, 140, 248, 0.08);
-    }
-
-    /* иконка языка — путь docs/images/icons_lang/ */
-    .card-icon {
-      width: 72px;
-      height: 72px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: 1.4rem;
-      border-radius: 24px;
-      background: rgba(255, 255, 255, 0.02);
-      border: 1px solid rgba(255, 255, 255, 0.03);
-      transition: 0.3s;
-      box-shadow: inset 0 2px 8px rgba(0,0,0,0.3);
-      overflow: hidden;
-      flex-shrink: 0;
-    }
-
-    .card-icon img {
-      width: 48px;
-      height: 48px;
-      object-fit: contain;
-      display: block;
-      filter: drop-shadow(0 0 6px rgba(129, 140, 248, 0.1));
-      transition: 0.3s;
-    }
-
-    .course-card:hover .card-icon {
-      background: rgba(129, 140, 248, 0.06);
-      border-color: rgba(129, 140, 248, 0.15);
-      box-shadow: 0 0 30px -8px rgba(129, 140, 248, 0.1);
-    }
-
-    .course-card:hover .card-icon img {
-      filter: drop-shadow(0 0 12px rgba(129, 140, 248, 0.25));
-      transform: scale(1.05);
-    }
-
-    .card-title {
-      font-size: 1.75rem;
-      font-weight: 700;
-      letter-spacing: -0.02em;
-      color: #f1f5f9;
-      margin-bottom: 0.5rem;
-    }
-
-    .card-description {
-      font-size: 0.98rem;
-      line-height: 1.6;
-      color: #b9c7da;
-      margin-bottom: 1.8rem;
-      flex: 1;
-      font-weight: 400;
-      opacity: 0.9;
-    }
-
-    /* нижняя часть */
-    .card-footer {
-      display: flex;
-      align-items: center;
-      gap: 0.6rem;
-      border-top: 1px solid rgba(255, 255, 255, 0.03);
-      padding-top: 1.2rem;
-      margin-top: auto;
-      flex-wrap: wrap;
-    }
-
-    .badge {
-      background: rgba(255, 255, 255, 0.03);
-      padding: 0.3rem 1rem;
-      border-radius: 40px;
-      font-size: 0.7rem;
-      font-weight: 600;
-      color: #b9c7da;
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
-      border: 1px solid rgba(255, 255, 255, 0.02);
-    }
-
-    .badge-accent {
-      background: rgba(129, 140, 248, 0.1);
-      color: #a5b4fc;
-      border-color: rgba(129, 140, 248, 0.08);
-    }
-
-    .card-arrow {
-      margin-left: auto;
-      background: rgba(255, 255, 255, 0.02);
-      width: 36px;
-      height: 36px;
-      border-radius: 40px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1rem;
-      transition: all 0.3s;
-      color: #94a3b8;
-      border: 1px solid rgba(255, 255, 255, 0.02);
-    }
-
-    .course-card:hover .card-arrow {
-      background: rgba(129, 140, 248, 0.12);
-      color: #c7d2fe;
-      transform: translateX(6px) scale(1.05);
-      border-color: rgba(129, 140, 248, 0.15);
-    }
-
-    /* ===== ФУТЕР ===== */
-    .footer-note {
-      margin-top: 4rem;
-      color: #475569;
-      font-size: 0.85rem;
-      text-align: center;
-      letter-spacing: 0.4px;
-      border-top: 1px solid rgba(255,255,255,0.02);
-      padding-top: 2rem;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 1.2rem;
-      flex-wrap: wrap;
-    }
-
-    .footer-note span {
-      color: #64748b;
-    }
-
-    .footer-note i {
-      color: #818cf8;
-      margin: 0 4px;
-    }
-
-    /* ===== АДАПТИВ ===== */
-    @media (max-width: 640px) {
-      .header .brand {
-        font-size: 2.6rem;
-      }
-      .header .sub {
-        font-size: 0.95rem;
-        padding: 0.4rem 1.4rem;
-      }
-      .card-title {
-        font-size: 1.5rem;
-      }
-      .cards-grid {
-        gap: 1.5rem;
-      }
-      .course-card {
-        padding: 1.8rem 1.4rem 1.5rem;
-        border-radius: 2.2rem;
-      }
-      .card-icon {
-        width: 60px;
-        height: 60px;
-      }
-      .card-icon img {
-        width: 40px;
-        height: 40px;
-      }
-    }
-
-    @media (max-width: 400px) {
-      .header .brand {
-        font-size: 2rem;
-      }
-    }
-
-    /* ===== СТИЛИ ДЛЯ ССЫЛОК (ведут на HTML-страницы) ===== */
-    .course-card {
-      /* ссылка ведёт на внешний файл, но остаётся карточкой */
-    }
-
-    /* убираем стандартное подчёркивание */
-    .course-card:link,
-    .course-card:visited,
-    .course-card:hover,
-    .course-card:active {
-      text-decoration: none;
-      color: inherit;
-    }
-
-    /* ===== ЭФФЕКТ "МАГНИТ" ДЛЯ КАРТОЧЕК (доп. изюминка) ===== */
-    .course-card .glow-ring {
-      position: absolute;
-      top: -2px;
-      left: -2px;
-      right: -2px;
-      bottom: -2px;
-      border-radius: 2.8rem;
-      background: transparent;
-      pointer-events: none;
-      transition: 0.4s;
-      z-index: 0;
-    }
-
-    .course-card:hover .glow-ring {
-      background: radial-gradient(circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(129, 140, 248, 0.06), transparent 60%);
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NeoCode — главная</title>
+    <!-- Google Fonts + Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+    <!-- Font Awesome 6 (Free) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Единый файл стилей -->
+    <link rel="stylesheet" href="assets/css/main.css">
 </head>
-<body>
-  <div class="app">
+<body class="dark-theme">
+    <div class="neo-app">
+        <!-- ===== ХЕДЕР ===== -->
+        <header class="neo-header">
+            <div class="brand">
+                <i class="fas fa-code"></i> NeoCode
+            </div>
+            <div class="sub">
+                <i class="fas fa-graduation-cap"></i> выберите курс и начните путь
+            </div>
+        </header>
 
-    <!-- ===== ХЕДЕР ===== -->
-    <header class="header">
-      <div class="brand">
-        <i class="fas fa-code"></i> NeoCode
-      </div>
-      <div class="sub">
-        <i class="fas fa-graduation-cap"></i> выберите курс и начните путь
-      </div>
-    </header>
+        <!-- ===== СЕТКА КАРТОЧЕК ===== -->
+        <div class="neo-grid">
+            <!-- Python -->
+            <a href="docs/pages/python.html" class="neo-card" data-course="python">
+                <div class="card-icon">
+                    <img src="docs/images/icons_lang/Python-Light.svg" alt="Python" loading="lazy">
+                </div>
+                <div class="card-title">Python</div>
+                <div class="card-description">Фундамент, веб-разработка, анализ данных и автоматизация.</div>
+                <div class="card-footer">
+                    <span class="badge badge-accent"><i class="fas fa-fire"></i> рекомендация новичкам</span>
+                    <span class="badge">24 урока</span>
+                    <span class="card-arrow"><i class="fas fa-arrow-right"></i></span>
+                </div>
+                <div class="glow-ring"></div>
+            </a>
 
-    <!-- ===== СЕТКА КАРТОЧЕК ===== -->
-    <div class="cards-grid">
+            <!-- ADO.NET -->
+            <a href="course_sql_ado/index.html" class="neo-card" data-course="ado_net">
+                <div class="card-icon">
+                    <img src="docs/images/icons_lang/DotNet.svg" alt=".NET" loading="lazy">
+                </div>
+                <div class="card-title">ADO.NET</div>
+                <div class="card-description">Базы данных MS SQL и ADO.NET / Entity Framework / Dapper</div>
+                <div class="card-footer">
+                    <span class="badge badge-accent"><i class="fas fa-fire"></i> рекомендация разработчикам на C#</span>
+                    <span class="badge">48 уроков</span>
+                    <span class="card-arrow"><i class="fas fa-arrow-right"></i></span>
+                </div>
+                <div class="glow-ring"></div>
+            </a>
 
-      <!-- Python -->
-      <a href="docs/pages/python.html" class="course-card" data-course="python">
-        <div class="card-icon">
-          <img src="docs/images/icons_lang/Python-Light.svg" alt="Python" loading="lazy">
         </div>
-        <div class="card-title">Python</div>
-        <div class="card-description">Фундамент, веб-разработка, анализ данных и автоматизация.</div>
-        <div class="card-footer">
-          <span class="badge badge-accent"><i class="fas fa-fire"></i> рекомендация новичкам</span>
-          <span class="badge">24 урока</span>
-          <span class="card-arrow"><i class="fas fa-arrow-right"></i></span>
-        </div>
-        <div class="glow-ring"></div>
-      </a>
 
-      <!-- JavaScript 
-      <a href="docs/javascript/index.html" class="course-card" data-course="javascript">
-        <div class="card-icon">
-          <img src="docs/images/icons_lang/javascript.svg" alt="JavaScript" loading="lazy">
+        <!-- ===== ФУТЕР ===== -->
+        <div class="neo-footer">
+            <span><i class="fas fa-folder-open"></i> уроки в отдельных файлах - документах</span>
+            <span><i class="fas fa-image"></i> примеры <code style="background: rgba(255,255,255,0.03); padding: 0.2rem 0.8rem; border-radius: 20px; font-size: 0.75rem; color: #94a3b8;">кода и руководства</code></span>
         </div>
-        <div class="card-title">JavaScript</div>
-        <div class="card-description">Интерактивный фронтенд, асинхронность, React и Node.js.</div>
-        <div class="card-footer">
-          <span class="badge badge-accent"><i class="fas fa-chart-line"></i> тренд</span>
-          <span class="badge">30 уроков</span>
-          <span class="card-arrow"><i class="fas fa-arrow-right"></i></span>
-        </div>
-        <div class="glow-ring"></div>
-      </a>-->
-
-      <!-- Java 
-      <a href="docs/java/index.html" class="course-card" data-course="java">
-        <div class="card-icon">
-          <img src="docs/images/icons_lang/java.svg" alt="Java" loading="lazy">
-        </div>
-        <div class="card-title">Java</div>
-        <div class="card-description">ООП, Spring, многопоточность, надёжный бэкенд.</div>
-        <div class="card-footer">
-          <span class="badge">22 урока</span>
-          <span class="card-arrow"><i class="fas fa-arrow-right"></i></span>
-        </div>
-        <div class="glow-ring"></div>
-      </a>-->
-
-      <!-- C++ 
-      <a href="docs/cpp/index.html" class="course-card" data-course="cpp">
-        <div class="card-icon">
-          <img src="docs/images/icons_lang/cpp.svg" alt="C++" loading="lazy">
-        </div>
-        <div class="card-title">C++</div>
-        <div class="card-description">Системное программирование, STL, память, алгоритмы.</div>
-        <div class="card-footer">
-          <span class="badge">28 уроков</span>
-          <span class="card-arrow"><i class="fas fa-arrow-right"></i></span>
-        </div>
-        <div class="glow-ring"></div>
-      </a>-->
-
-      <!-- Go 
-      <a href="docs/go/index.html" class="course-card" data-course="go">
-        <div class="card-icon">
-          <img src="docs/images/icons_lang/go.svg" alt="Go" loading="lazy">
-        </div>
-        <div class="card-title">Go</div>
-        <div class="card-description">Конкурентность, микросервисы, облачные технологии.</div>
-        <div class="card-footer">
-          <span class="badge badge-accent"><i class="fas fa-rocket"></i> modern</span>
-          <span class="badge">18 уроков</span>
-          <span class="card-arrow"><i class="fas fa-arrow-right"></i></span>
-        </div>
-        <div class="glow-ring"></div>
-      </a>-->
-
-      <!-- Rust 
-      <a href="docs/rust/index.html" class="course-card" data-course="rust">
-        <div class="card-icon">
-          <img src="docs/images/icons_lang/rust.svg" alt="Rust" loading="lazy">
-        </div>
-        <div class="card-title">Rust</div>
-        <div class="card-description">Безопасная работа с памятью, производительность, парадигмы.</div>
-        <div class="card-footer">
-          <span class="badge">20 уроков</span>
-          <span class="card-arrow"><i class="fas fa-arrow-right"></i></span>
-        </div>
-        <div class="glow-ring"></div>
-      </a>-->
-
     </div>
 
-    <!-- ===== ФУТЕР ===== -->
-    <div class="footer-note">
-      <span><i class="fas fa-folder-open"></i> уроки в отдельных файлах - документах</span>
-      <span><i class="fas fa-image"></i> примеры <code style="background: rgba(255,255,255,0.03); padding: 0.2rem 0.8rem; border-radius: 20px; font-size: 0.75rem; color: #94a3b8;">кода и руководства</code></span>
-    </div>
-
-  </div>
-
-  <!-- ===== СКРИПТ ДЛЯ ЭФФЕКТА "МАГНИТ"===== -->
-  <script>
-    (function() {
-      // Эффект свечения, следующего за курсором (для карточек)
-      const cards = document.querySelectorAll('.course-card');
-      cards.forEach(card => {
-        card.addEventListener('mousemove', (e) => {
-          const rect = card.getBoundingClientRect();
-          const x = ((e.clientX - rect.left) / rect.width) * 100;
-          const y = ((e.clientY - rect.top) / rect.height) * 100;
-          card.style.setProperty('--mouse-x', x + '%');
-          card.style.setProperty('--mouse-y', y + '%');
-        });
-      });
-
-    })();
-  </script>
+    <!-- ===== СКРИПТ ДЛЯ ЭФФЕКТА "МАГНИТ" ===== -->
+    <script>
+        (function() {
+            const cards = document.querySelectorAll('.neo-card');
+            cards.forEach(card => {
+                card.addEventListener('mousemove', (e) => {
+                    const rect = card.getBoundingClientRect();
+                    const x = ((e.clientX - rect.left) / rect.width) * 100;
+                    const y = ((e.clientY - rect.top) / rect.height) * 100;
+                    card.style.setProperty('--mouse-x', x + '%');
+                    card.style.setProperty('--mouse-y', y + '%');
+                });
+            });
+        })();
+    </script>
 </body>
 </html>

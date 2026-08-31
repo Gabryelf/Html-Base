@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Урок 1. Введение в теорию БД и установка SQL Server</title>
+    <link rel="stylesheet" href="../../../assets/css/main.css" />
+    
+</head>
+<body>
+
+    <div class="course-container">
+        <!-- Шапка курса -->
+        <header class="course-header">
+            <div class="header-content">
+                <h1>📚 Базы данных и ADO.NET</h1>
+                <p class="subtitle">Колледж — Курс лекций и лабораторных работ</p>
+                <nav class="breadcrumb">
+                    <a href="../../index.html">Главная курса</a>
+                    <span>›</span>
+                    <a href="/kolledj/course_sql_ado/module_1_intro/index.html">Модуль 1</a>
+                    <span>›</span>
+                    <span class="current">Урок 1</span>
+                </nav>
+            </div>
+        </header>
+
+        <!-- Основной контент -->
+        <main class="lesson-content">
+            <aside class="lesson-sidebar">
+                <div class="module-info">
+                    <h3>Модуль 1. Основы теории БД</h3>
+                    <ul class="lesson-list">
+                        <li class="active">
+                            <a href="#">
+                                <span class="lesson-num">01</span> Введение, архитектура, установка
+                                <span class="badge done">✓</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="lesson_2/index.html">
+                                <span class="lesson-num">02</span> Типы данных и нормализация
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <span class="lesson-num">03</span> CREATE, ALTER, DROP
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <span class="lesson-num">04</span> INSERT, UPDATE, DELETE
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="resources-block">
+                    <h4>📎 Материалы урока</h4>
+                    <ul>
+                        <li>
+                            <a href="lesson_1_presentation.pdf" class="download-btn" download>
+                                📥 Скачать презентацию (PDF)
+                            </a>
+                        </li>
+                        <li>
+                            <a href="lesson_1_tasks.pdf" class="download-btn" download>
+                                📥 Скачать задания (PDF)
+                            </a>
+                        </li>
+                        <li>
+                            <a href="lesson_1_scripts.sql" class="download-btn" download>
+                                📥 Скачать SQL-скрипт
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="quick-links">
+                    <h4>🔗 Полезные ссылки</h4>
+                    <ul>
+                        <li><a href="https://www.microsoft.com/ru-ru/sql-server/sql-server-downloads" target="_blank">Скачать SQL Server</a></li>
+                        <li><a href="https://docs.microsoft.com/ru-ru/sql/ssms/download-sql-server-management-studio-ssms" target="_blank">Скачать SSMS</a></li>
+                    </ul>
+                </div>
+            </aside>
+
+            <section class="lesson-main">
+                <div class="lesson-header">
+                    <span class="lesson-progress">📍 Пара №1 (2 часа) | Теория + Практика</span>
+                    <h2>Введение в теорию баз данных. Установка и архитектура MS SQL Server</h2>
+                    <p class="lesson-goal">
+                        <strong>🎯 Цель урока:</strong> Понять, что такое СУБД и реляционная модель, установить SQL Server и SSMS, выполнить первое подключение.
+                    </p>
+                </div>
+
+                <!-- ====== БЛОК 1. ТЕОРИЯ ====== -->
+                <section class="theory-block">
+                    <h3>📖 1. Что такое база данных и СУБД</h3>
+                    <p>
+                        <strong>База данных (БД)</strong> — это структурированный набор данных, хранящихся в электронном виде.
+                        <strong>СУБД (Система управления базами данных)</strong> — это программное обеспечение, которое позволяет создавать, изменять и управлять базами данных.
+                    </p>
+                    <div class="highlight-box">
+                        <strong>Пример:</strong> Книжный каталог в библиотеке — это база данных (книги, авторы, читатели). Программа, которая ищет книгу по запросу — это СУБД.
+                    </div>
+
+                    <h3>📖 2. Реляционная модель данных</h3>
+                    <p>
+                        В основе реляционной модели лежат <strong>таблицы (отношения)</strong>. Каждая таблица состоит из:
+                    </p>
+                    <ul>
+                        <li><strong>Столбцов (атрибутов)</strong> — свойств объектов (например, Имя, Цена).</li>
+                        <li><strong>Строк (кортежей)</strong> — записей об объекте (конкретная книга или клиент).</li>
+                    </ul>
+                    <p>
+                        <strong>Ключевые понятия:</strong>
+                    </p>
+                    <ul>
+                        <li><strong>Первичный ключ (PK)</strong> — уникальный идентификатор записи (например, ID студента).</li>
+                        <li><strong>Внешний ключ (FK)</strong> — ссылка на первичный ключ другой таблицы (связь между таблицами).</li>
+                    </ul>
+                    <div class="highlight-box">
+                        <strong>Пример связи:</strong> Таблица «Книги» имеет поле <code>AuthorID</code>, которое ссылается на поле <code>ID</code> в таблице «Авторы». Это связь «один ко многим».
+                    </div>
+
+                    <h3>📖 3. Типы связей между таблицами</h3>
+                    <table style="width:100%; border-collapse: collapse; margin:15px 0;">
+                        <thead style="background:#0078d4; color:white;">
+                            <tr><th style="padding:10px; border:1px solid #ddd;">Тип связи</th><th style="padding:10px; border:1px solid #ddd;">Описание</th><th style="padding:10px; border:1px solid #ddd;">Пример</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td style="padding:8px; border:1px solid #ddd;"><strong>1:1</strong></td><td style="padding:8px; border:1px solid #ddd;">Одна запись связана с одной</td><td style="padding:8px; border:1px solid #ddd;">Человек ↔ Паспорт</td></tr>
+                            <tr><td style="padding:8px; border:1px solid #ddd;"><strong>1:M</strong></td><td style="padding:8px; border:1px solid #ddd;">Одна запись связана с несколькими</td><td style="padding:8px; border:1px solid #ddd;">Автор ↔ Книги</td></tr>
+                            <tr><td style="padding:8px; border:1px solid #ddd;"><strong>M:M</strong></td><td style="padding:8px; border:1px solid #ddd;">Многие со многими (требуется связующая таблица)</td><td style="padding:8px; border:1px solid #ddd;">Студенты ↔ Курсы</td></tr>
+                        </tbody>
+                    </table>
+                </section>
+
+                <!-- ====== БЛОК 2. ПРАКТИКА УСТАНОВКИ ====== -->
+                <section class="practice-block">
+                    <h3>🛠️ 4. Установка MS SQL Server и SSMS</h3>
+                    <p>
+                        Для работы нам понадобятся два компонента:
+                    </p>
+                    <ol>
+                        <li>
+                            <strong>SQL Server</strong> — сервер баз данных (движок).<br />
+                            Скачать: <a href="https://www.microsoft.com/ru-ru/sql-server/sql-server-downloads" target="_blank">SQL Server Express</a> (бесплатно)
+                        </li>
+                        <li>
+                            <strong>SSMS (SQL Server Management Studio)</strong> — среда управления для написания запросов.<br />
+                            Скачать: <a href="https://docs.microsoft.com/ru-ru/sql/ssms/download-sql-server-management-studio-ssms" target="_blank">SSMS</a>
+                        </li>
+                    </ol>
+                    <div class="highlight-box">
+                        <strong>⚠️ Важно:</strong> Устанавливайте SQL Server <u>до</u> SSMS. При установке выберите режим аутентификации <strong>"Смешанный режим"</strong> и установите пароль для пользователя <code>sa</code>.
+                    </div>
+
+                    <!-- Видео-инструкция (пример вставки с YouTube) -->
+                    <h4>📺 Видео-инструкция по установке</h4>
+                    <div class="video-container">
+                        <!-- Здесь вставьте iframe с вашим видео, например с YouTube -->
+                        <iframe 
+                            src="../../../docs/video/smss_install.mp4" 
+                            title="Установка SQL Server и SSMS"
+                            frameborder="0" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                            allowfullscreen>
+                        </iframe>
+                    </div>
+                    <p style="font-size:14px; color:#666;">* Видео будет заменено на ваше после записи.</p>
+
+                    <h3>🖥️ 5. Первое подключение к серверу через SSMS</h3>
+                    <ol>
+                        <li>Запустите SSMS.</li>
+                        <li>В поле <strong>"Имя сервера"</strong> введите <code>localhost</code> или <code>.</code> (точка).</li>
+                        <li>Выберите <strong>"Проверка подлинности Windows"</strong> (если вы администратор компьютера).</li>
+                        <li>Нажмите <strong>"Подключиться"</strong>.</li>
+                    </ol>
+                    <div class="highlight-box">
+                        <strong>Результат:</strong> Если вы видите папку "Базы данных" в обозревателе объектов — всё работает!
+                    </div>
+                </section>
+
+                <!-- ====== БЛОК 3. ПЕРВЫЙ SQL-СКРИПТ ====== -->
+                <section class="code-block-section">
+                    <h3>✍️ 6. Создание первой базы данных и таблицы</h3>
+                    <p>
+                        Откройте окно запроса (кнопка "New Query") и выполните следующий скрипт:
+                    </p>
+                    <div class="code-block">
+                        <pre><code><span class="sql-comment">-- Создаём новую базу данных</span>
+<span class="sql-keyword">CREATE DATABASE</span> FirstDB;
+<span class="sql-keyword">GO</span>
+
+<span class="sql-comment">-- Переключаемся на неё</span>
+<span class="sql-keyword">USE</span> FirstDB;
+<span class="sql-keyword">GO</span>
+
+<span class="sql-comment">-- Создаём таблицу Students</span>
+<span class="sql-keyword">CREATE TABLE</span> Students (
+    <span class="sql-keyword">ID</span> <span class="sql-keyword">INT</span> <span class="sql-keyword">PRIMARY KEY</span> <span class="sql-keyword">IDENTITY</span>(1,1),
+    [Name] <span class="sql-keyword">NVARCHAR</span>(50) <span class="sql-keyword">NOT NULL</span>,
+    Age <span class="sql-keyword">INT</span>,
+    [Group] <span class="sql-keyword">NVARCHAR</span>(10)
+);
+<span class="sql-keyword">GO</span>
+
+<span class="sql-comment">-- Добавляем пару строк</span>
+<span class="sql-keyword">INSERT INTO</span> Students ([Name], Age, [Group])
+<span class="sql-keyword">VALUES</span> 
+    (<span class="sql-string">'Анна Иванова'</span>, 19, <span class="sql-string">'ИС-21'</span>),
+    (<span class="sql-string">'Петр Петров'</span>, 20, <span class="sql-string">'ПМ-22'</span>);
+<span class="sql-keyword">GO</span>
+
+<span class="sql-comment">-- Посмотрим результат</span>
+<span class="sql-keyword">SELECT</span> * <span class="sql-keyword">FROM</span> Students;
+<span class="sql-keyword">GO</span></code></pre>
+                    </div>
+                    <p>
+                        После выполнения запроса вы увидите таблицу с двумя студентами.
+                    </p>
+                </section>
+
+                <!-- ====== БЛОК 4. ЗАДАНИЯ ====== -->
+                <section class="tasks-block">
+                    <h3>📝 7. Задания для самостоятельной работы</h3>
+                    <div class="task-card">
+                        <h4>Задание 1. Установка</h4>
+                        <p>Установите SQL Server Express и SSMS на свой компьютер. Сделайте скриншот окна SSMS с подключённым сервером.</p>
+                    </div>
+                    <div class="task-card">
+                        <h4>Задание 2. Создание БД</h4>
+                        <p>Создайте базу данных <code>LibraryDB</code>. В ней создайте таблицу <code>Books</code> с полями: ID (PK), Title, Author, Year, Price.</p>
+                        <p>Добавьте 3 книги (например, "Война и мир", "Преступление и наказание", "Мастер и Маргарита").</p>
+                        <p>Напишите запрос, который выведет все книги дороже 500 рублей.</p>
+                    </div>
+                    <div class="task-card">
+                        <h4>Задание 3. Дизайн</h4>
+                        <p>На листе бумаги или в любом редакторе нарисуйте ER-диаграмму для предметной области <strong>"Интернет-магазин"</strong> (таблицы: Товары, Категории, Заказы, Клиенты).</p>
+                    </div>
+                    <p style="margin-top:15px;">
+                        <a href="tasks.html" class="download-btn" download>📄 Скачать полный список заданий</a>
+                    </p>
+                </section>
+
+                <!-- ====== БЛОК 5. КОНТРОЛЬНЫЕ ВОПРОСЫ ====== -->
+                <section class="quiz-block" style="background:#f8f9fa; padding:20px; border-radius:8px; margin-top:30px;">
+                    <h3>Контрольные вопросы (для самопроверки)</h3>
+                    <ol>
+                        <li>В чём разница между БД и СУБД?</li>
+                        <li>Что такое первичный и внешний ключи?</li>
+                        <li>Какая связь между таблицами называется "один ко многим"? Приведите пример.</li>
+                        <li>Как подключиться к локальному серверу в SSMS?</li>
+                        <li>Какой SQL-запрос используется для создания новой таблицы?</li>
+                    </ol>
+                </section>
+
+                <!-- ====== НАВИГАЦИЯ ====== -->
+                <div class="nav-buttons">
+                    <a href="#" class="disabled">← Предыдущий урок</a>
+                    <a href="/kolledj/course_sql_ado/module_1_intro/lesson_2/index.html">Следующий урок →</a>
+                </div>
+
+                <!-- ====== ПОДВАЛ ====== -->
+                <footer class="lesson-footer">
+                    <p>© 2026 IT TOP COLLEGE | Материалы курса "Базы данных и ADO.NET"</p>
+                    <p>
+                        <a href="/kolledj/course_sql_ado/syllabus.html">Рабочая программа</a> |
+                        <a href="/kolledj/course_sql_ado/labs/index.html">Лабораторные работы</a>
+                    </p>
+                </footer>
+            </section>
+        </main>
+    </div>
+
+</body>
+</html>

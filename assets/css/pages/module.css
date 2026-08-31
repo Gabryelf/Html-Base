@@ -1,0 +1,69 @@
+/* ========================================
+   Страница модуля
+   ======================================== */
+
+   .module-page-header {
+    background: var(--color-secondary);
+    color: var(--text-white);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-xl);
+    margin-bottom: var(--spacing-xl);
+}
+
+.module-page-header h1 {
+    color: var(--text-white);
+    margin-bottom: var(--spacing-xs);
+}
+
+.module-page-header .module-meta {
+    opacity: 0.8;
+    font-size: 0.95rem;
+}
+
+.lesson-list-module {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+}
+
+.lesson-item {
+    background: var(--bg-card);
+    border-radius: var(--radius-md);
+    padding: var(--spacing-md) var(--spacing-lg);
+    box-shadow: var(--shadow-sm);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: all var(--transition-fast);
+}
+
+.lesson-item:hover {
+    box-shadow: var(--shadow-md);
+    transform: translateX(4px);
+}
+
+.lesson-item .lesson-info h4 {
+    margin: 0;
+}
+
+.lesson-item .lesson-info .desc {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+}
+
+.lesson-item .lesson-status {
+    font-size: 0.8rem;
+    padding: 2px 12px;
+    border-radius: 20px;
+    background: var(--color-gray-200);
+}
+
+.lesson-item .lesson-status.done {
+    background: var(--color-success);
+    color: var(--text-white);
+}
+
+.lesson-item .lesson-status.pending {
+    background: var(--color-warning);
+    color: var(--text-secondary);
+}

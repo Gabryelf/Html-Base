@@ -1,0 +1,73 @@
+/* ========================================
+   CSS Variables (глобальные настройки)
+   ======================================== */
+
+   :root {
+    /* Основные цвета */
+    --color-primary: #0078d4;
+    --color-primary-dark: #005a9e;
+    --color-primary-light: #e2edf9;
+    --color-secondary: #002642;
+    --color-success: #28a745;
+    --color-warning: #ffc107;
+    --color-danger: #dc3545;
+    --color-info: #17a2b8;
+
+    /* Нейтральные */
+    --color-white: #ffffff;
+    --color-gray-100: #f8f9fa;
+    --color-gray-200: #e9ecef;
+    --color-gray-300: #dee2e6;
+    --color-gray-400: #ced4da;
+    --color-gray-500: #adb5bd;
+    --color-gray-600: #6c757d;
+    --color-gray-700: #495057;
+    --color-gray-800: #343a40;
+    --color-gray-900: #212529;
+    --color-black: #1a1a2e;
+
+    /* Фоны */
+    --bg-body: #f0f4f8;
+    --bg-card: #ffffff;
+    --bg-dark: #002642;
+    --bg-highlight: #f0f7ff;
+
+    /* Текст */
+    --text-primary: #1a1a2e;
+    --text-secondary: #495057;
+    --text-muted: #6c757d;
+    --text-white: #ffffff;
+
+    /* Отступы */
+    --spacing-xs: 4px;
+    --spacing-sm: 8px;
+    --spacing-md: 16px;
+    --spacing-lg: 24px;
+    --spacing-xl: 32px;
+    --spacing-xxl: 48px;
+
+    /* Радиусы */
+    --radius-sm: 4px;
+    --radius-md: 8px;
+    --radius-lg: 12px;
+    --radius-xl: 20px;
+
+    /* Шрифты */
+    --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    --font-mono: 'Consolas', 'Courier New', monospace;
+
+    /* Тени */
+    --shadow-sm: 0 1px 3px rgba(0,0,0,0.08);
+    --shadow-md: 0 2px 8px rgba(0,0,0,0.08);
+    --shadow-lg: 0 4px 20px rgba(0,0,0,0.12);
+    --shadow-hover: 0 6px 24px rgba(0,0,0,0.15);
+
+    /* Переходы */
+    --transition-fast: 0.15s ease;
+    --transition-normal: 0.25s ease;
+    --transition-slow: 0.4s ease;
+
+    /* Контейнер */
+    --container-max: 1400px;
+    --sidebar-width: 280px;
+}

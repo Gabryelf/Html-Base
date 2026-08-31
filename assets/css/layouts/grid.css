@@ -1,0 +1,60 @@
+/* ========================================
+   Grid & Flex Layouts
+   ======================================== */
+
+   .course-container {
+    max-width: var(--container-max);
+    margin: 0 auto;
+    padding: var(--spacing-lg);
+}
+
+/* Сетка модулей */
+.course-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: var(--spacing-lg);
+    margin-top: var(--spacing-lg);
+}
+
+/* Основной контент + сайдбар */
+.lesson-content {
+    display: flex;
+    gap: var(--spacing-xl);
+    align-items: flex-start;
+}
+
+.lesson-main {
+    flex: 1;
+    background: var(--bg-card);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-xl) var(--spacing-xxl);
+    box-shadow: var(--shadow-sm);
+    min-width: 0; /* предотвращает переполнение */
+}
+
+/* Flex для навигации */
+.nav-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: var(--spacing-xl);
+    padding-top: var(--spacing-lg);
+    border-top: 2px solid var(--color-gray-200);
+}
+
+/* Инфо-блок курса */
+.course-info {
+    background: var(--color-secondary);
+    color: var(--text-white);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-lg) var(--spacing-xl);
+    margin: var(--spacing-lg) 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: var(--spacing-md);
+}
+
+.course-info .total-hours span {
+    color: #ffd966;
+}

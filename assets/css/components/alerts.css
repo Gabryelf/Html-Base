@@ -1,0 +1,45 @@
+/* ========================================
+   Alerts / Highlight Boxes
+   ======================================== */
+
+   .highlight-box {
+    background: var(--bg-highlight);
+    border-left: 5px solid var(--color-primary);
+    padding: var(--spacing-md) var(--spacing-lg);
+    margin: var(--spacing-md) 0;
+    border-radius: var(--radius-sm);
+}
+
+.highlight-box.success {
+    border-left-color: var(--color-success);
+    background: #f0fff4;
+}
+
+.highlight-box.warning {
+    border-left-color: var(--color-warning);
+    background: #fffbe6;
+}
+
+.highlight-box.danger {
+    border-left-color: var(--color-danger);
+    background: #fff0f0;
+}
+
+.highlight-box.info {
+    border-left-color: var(--color-info);
+    background: #e6f7ff;
+}
+
+/* Карточки заданий */
+.task-card {
+    background: #fffbe6;
+    border: 1px solid #ffd966;
+    padding: var(--spacing-md) var(--spacing-lg);
+    border-radius: var(--radius-md);
+    margin: var(--spacing-md) 0;
+}
+
+.task-card h4 {
+    margin-top: 0;
+    color: #b8860b;
+}

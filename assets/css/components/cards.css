@@ -1,0 +1,66 @@
+/* ========================================
+   Cards (карточки модулей)
+   ======================================== */
+
+   .module-card {
+    background: var(--bg-card);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-lg) var(--spacing-xl);
+    box-shadow: var(--shadow-sm);
+    border-left: 5px solid var(--color-primary);
+    transition: all var(--transition-normal);
+}
+
+.module-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-hover);
+}
+
+.module-card h3 {
+    color: var(--color-secondary);
+    margin-top: 0;
+    font-size: 1.2rem;
+}
+
+.module-card .badge-hours {
+    display: inline-block;
+    background: var(--color-gray-200);
+    padding: 2px 14px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    margin: var(--spacing-sm) 0 var(--spacing-md) 0;
+}
+
+.module-card ul {
+    list-style: none;
+    padding: 0;
+    margin: var(--spacing-md) 0 var(--spacing-md) 0;
+}
+
+.module-card ul li {
+    padding: var(--spacing-xs) 0;
+    font-size: 0.9rem;
+    border-bottom: 1px dashed var(--color-gray-200);
+}
+
+.module-card ul li:last-child {
+    border-bottom: none;
+}
+
+.module-card ul li a {
+    color: var(--color-primary);
+    text-decoration: none;
+}
+
+.module-card ul li a:hover {
+    text-decoration: underline;
+}
+
+/* Разные цвета для карточек */
+.module-card:nth-child(1) { border-left-color: var(--color-primary); }
+.module-card:nth-child(2) { border-left-color: var(--color-success); }
+.module-card:nth-child(3) { border-left-color: #fd7e14; }
+.module-card:nth-child(4) { border-left-color: #6f42c1; }
+.module-card:nth-child(5) { border-left-color: #20c997; }
+.module-card:nth-child(6) { border-left-color: var(--color-danger); }

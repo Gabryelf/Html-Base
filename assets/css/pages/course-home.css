@@ -1,0 +1,52 @@
+/* ========================================
+   Главная страница курса (index.html)
+   ======================================== */
+
+/* Дополнительные стили только для главной */
+
+.course-home-hero {
+    text-align: center;
+    padding: var(--spacing-xxl) var(--spacing-xl);
+    background: linear-gradient(135deg, var(--color-secondary), var(--color-primary-dark));
+    border-radius: var(--radius-lg);
+    color: var(--text-white);
+    margin-bottom: var(--spacing-xl);
+}
+
+.course-home-hero h1 {
+    color: var(--text-white);
+    font-size: 2.8rem;
+}
+
+.course-home-hero .subtitle {
+    font-size: 1.2rem;
+    opacity: 0.85;
+}
+
+.stats-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-lg);
+    justify-content: center;
+    margin: var(--spacing-lg) 0;
+}
+
+.stat-item {
+    background: var(--bg-card);
+    border-radius: var(--radius-md);
+    padding: var(--spacing-md) var(--spacing-xl);
+    box-shadow: var(--shadow-sm);
+    text-align: center;
+    flex: 0 1 150px;
+}
+
+.stat-item .number {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--color-primary);
+}
+
+.stat-item .label {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+}

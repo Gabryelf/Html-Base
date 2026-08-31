@@ -1,0 +1,75 @@
+/* ========================================
+   Responsive / Adaptive
+   ======================================== */
+
+/* Планшеты */
+@media (max-width: 992px) {
+    .lesson-content {
+        flex-direction: column;
+    }
+
+    .lesson-sidebar {
+        flex: auto;
+        position: static;
+        width: 100%;
+    }
+
+    .lesson-main {
+        padding: var(--spacing-lg);
+    }
+
+    .course-grid {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    }
+
+    .course-info {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+/* Мобильные */
+@media (max-width: 576px) {
+    .course-container {
+        padding: var(--spacing-md);
+    }
+
+    .course-header {
+        padding: var(--spacing-md);
+    }
+
+    .course-header h1 {
+        font-size: 1.4rem;
+    }
+
+    .lesson-main {
+        padding: var(--spacing-md);
+    }
+
+    .nav-buttons {
+        flex-direction: column;
+        gap: var(--spacing-sm);
+        align-items: stretch;
+    }
+
+    .nav-buttons a {
+        text-align: center;
+    }
+
+    .course-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .module-card {
+        padding: var(--spacing-md);
+    }
+
+    .code-block {
+        font-size: 0.75rem;
+        padding: var(--spacing-sm);
+    }
+
+    .breadcrumb {
+        font-size: 0.8rem;
+    }
+}

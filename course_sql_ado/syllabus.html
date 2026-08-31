@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Рабочая программа — Базы данных и ADO.NET</title>
+    <link rel="stylesheet" href="../assets/css/main.css" />
+    <style>
+        /* Дополнительные стили для печати */
+        .syllabus-header {
+            background: var(--color-secondary);
+            color: var(--text-white);
+            border-radius: var(--radius-lg);
+            padding: var(--spacing-xl);
+            margin-bottom: var(--spacing-xl);
+        }
+        .syllabus-header h1 {
+            color: var(--text-white);
+            margin-bottom: var(--spacing-xs);
+        }
+        .syllabus-meta {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: var(--spacing-md);
+            margin: var(--spacing-lg) 0;
+        }
+        .syllabus-meta-item {
+            background: var(--bg-card);
+            padding: var(--spacing-md);
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-sm);
+        }
+        .syllabus-meta-item strong {
+            display: block;
+            color: var(--color-secondary);
+        }
+        .syllabus-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: var(--spacing-md) 0;
+            font-size: 0.9rem;
+        }
+        .syllabus-table thead {
+            background: var(--color-secondary);
+            color: var(--text-white);
+        }
+        .syllabus-table th,
+        .syllabus-table td {
+            padding: var(--spacing-sm) var(--spacing-md);
+            border: 1px solid var(--color-gray-300);
+            text-align: left;
+            vertical-align: top;
+        }
+        .syllabus-table tbody tr:nth-child(even) {
+            background: var(--color-gray-100);
+        }
+        .syllabus-table .hours-cell {
+            text-align: center;
+            font-weight: 600;
+            white-space: nowrap;
+        }
+        .syllabus-table .section-header {
+            background: var(--color-primary-light);
+            font-weight: 700;
+        }
+        @media print {
+            .course-header, .nav-buttons, .breadcrumb { display: none; }
+            .syllabus-table { font-size: 11px; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="course-container">
+
+    <!-- Шапка курса -->
+    <header class="course-header">
+        <div class="header-content">
+            <h1>🗄️ Рабочая программа курса</h1>
+            <p class="subtitle">«Базы данных и технологии доступа ADO.NET»</p>
+            <nav class="breadcrumb">
+                <a href="index.html">Главная курса</a>
+                <span>›</span>
+                <span class="current">Рабочая программа</span>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Мета-информация -->
+    <div class="syllabus-meta">
+        <div class="syllabus-meta-item">
+            <strong>📚 Специальность</strong>
+            09.02.07 Информационные системы и программирование
+        </div>
+        <div class="syllabus-meta-item">
+            <strong>📅 Семестр</strong>
+            4-й семестр (2 курс)
+        </div>
+        <div class="syllabus-meta-item">
+            <strong>⏱️ Всего часов</strong>
+            96 часов (аудиторных)
+        </div>
+        <div class="syllabus-meta-item">
+            <strong>📝 Форма контроля</strong>
+            Диф. зачет (Раздел 1) + Экзамен (Раздел 2)
+        </div>
+    </div>
+
+    <!-- Цели и задачи -->
+    <section style="margin-bottom: var(--spacing-xl);">
+        <h2>🎯 Цели и задачи курса</h2>
+        <div class="highlight-box">
+            <strong>Цель:</strong> Сформировать у студентов практические навыки проектирования реляционных баз данных, разработки серверной логики на T-SQL и создания клиентских приложений на C# с использованием технологий доступа ADO.NET и Entity Framework.
+        </div>
+        <h3 style="margin-top: var(--spacing-lg);">Задачи:</h3>
+        <ul>
+            <li>Освоить теорию реляционных баз данных и нормализацию;</li>
+            <li>Научиться создавать и администрировать БД в MS SQL Server;</li>
+            <li>Освоить язык T-SQL (запросы, процедуры, триггеры, функции);</li>
+            <li>Изучить технологию ADO.NET для доступа к данным из C#;</li>
+            <li>Освоить ORM-технологию Entity Framework Core.</li>
+        </ul>
+    </section>
+
+    <!-- Тематический план -->
+    <section>
+        <h2>📋 Тематический план</h2>
+        <table class="syllabus-table">
+            <thead>
+                <tr>
+                    <th style="width: 5%;">№</th>
+                    <th style="width: 55%;">Тема</th>
+                    <th style="width: 15%;">Всего часов</th>
+                    <th style="width: 12%;">Теория</th>
+                    <th style="width: 13%;">Практика</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- РАЗДЕЛ 1 -->
+                <tr class="section-header">
+                    <td colspan="5"><strong>Раздел 1. Теория баз данных. Программирование MS SQL Server</strong></td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>Введение в теорию баз данных. Установка и архитектура MS SQL Server</td>
+                    <td class="hours-cell">4</td>
+                    <td>2</td>
+                    <td>2</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Типы данных. Нормализация. CREATE, ALTER, DROP</td>
+                    <td class="hours-cell">4</td>
+                    <td>2</td>
+                    <td>2</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>DML-запросы: INSERT, UPDATE, DELETE. SELECT, WHERE, LIKE</td>
+                    <td class="hours-cell">4</td>
+                    <td>1</td>
+                    <td>3</td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>Многотабличные базы данных. Вложенные запросы. CTE</td>
+                    <td class="hours-cell">6</td>
+                    <td>2</td>
+                    <td>4</td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td>Функции агрегирования. GROUP BY. Оконные функции</td>
+                    <td class="hours-cell">6</td>
+                    <td>2</td>
+                    <td>4</td>
+                </tr>
+                <tr>
+                    <td>6</td>
+                    <td>Объединения (JOIN). UNION, EXCEPT, INTERSECT</td>
+                    <td class="hours-cell">4</td>
+                    <td>1</td>
+                    <td>3</td>
+                </tr>
+                <tr>
+                    <td>7</td>
+                    <td>Триггеры, хранимые процедуры и пользовательские функции</td>
+                    <td class="hours-cell">10</td>
+                    <td>4</td>
+                    <td>6</td>
+                </tr>
+                <tr>
+                    <td>8</td>
+                    <td>Безопасность. Пользователи, роли, права доступа. Резервное копирование</td>
+                    <td class="hours-cell">8</td>
+                    <td>4</td>
+                    <td>4</td>
+                </tr>
+                <tr>
+                    <td>9</td>
+                    <td>Дифференцированный зачет (защита проекта)</td>
+                    <td class="hours-cell">2</td>
+                    <td>0</td>
+                    <td>2</td>
+                </tr>
+                <tr style="font-weight: 700; background: var(--color-gray-200);">
+                    <td colspan="2"><strong>Итого по разделу 1</strong></td>
+                    <td class="hours-cell"><strong>48</strong></td>
+                    <td><strong>18</strong></td>
+                    <td><strong>30</strong></td>
+                </tr>
+
+                <!-- РАЗДЕЛ 2 -->
+                <tr class="section-header">
+                    <td colspan="5"><strong>Раздел 2. Технология доступа к базам данных ADO.NET</strong></td>
+                </tr>
+                <tr>
+                    <td>10</td>
+                    <td>Введение в ADO.NET. Архитектура. SqlConnection, SqlCommand</td>
+                    <td class="hours-cell">4</td>
+                    <td>2</td>
+                    <td>2</td>
+                </tr>
+                <tr>
+                    <td>11</td>
+                    <td>Присоединенный режим (Connected). SqlDataReader. CRUD-операции</td>
+                    <td class="hours-cell">6</td>
+                    <td>2</td>
+                    <td>4</td>
+                </tr>
+                <tr>
+                    <td>12</td>
+                    <td>Фабрика провайдеров. Асинхронный доступ. Конфигурационные файлы</td>
+                    <td class="hours-cell">4</td>
+                    <td>2</td>
+                    <td>2</td>
+                </tr>
+                <tr>
+                    <td>13</td>
+                    <td>Отсоединенный режим (Disconnected). DataSet, DataTable, DataAdapter</td>
+                    <td class="hours-cell">6</td>
+                    <td>2</td>
+                    <td>4</td>
+                </tr>
+                <tr>
+                    <td>14</td>
+                    <td>LINQ to SQL. Создание модели. CRUD через LINQ</td>
+                    <td class="hours-cell">6</td>
+                    <td>2</td>
+                    <td>4</td>
+                </tr>
+                <tr>
+                    <td>15</td>
+                    <td>Введение в Entity Framework Core. Code First. Миграции. Fluent API</td>
+                    <td class="hours-cell">12</td>
+                    <td>4</td>
+                    <td>8</td>
+                </tr>
+                <tr style="font-weight: 700; background: var(--color-gray-200);">
+                    <td colspan="2"><strong>Итого по разделу 2</strong></td>
+                    <td class="hours-cell"><strong>48</strong></td>
+                    <td><strong>14</strong></td>
+                    <td><strong>34</strong></td>
+                </tr>
+
+                <!-- ИТОГО -->
+                <tr style="font-weight: 700; background: var(--color-secondary); color: var(--text-white);">
+                    <td colspan="2"><strong>ВСЕГО по курсу</strong></td>
+                    <td class="hours-cell"><strong>96</strong></td>
+                    <td><strong>32</strong></td>
+                    <td><strong>64</strong></td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <!-- Формы контроля -->
+    <section style="margin-top: var(--spacing-xl);">
+        <h2>📊 Формы контроля</h2>
+        <div class="highlight-box info">
+            <strong>Текущий контроль:</strong> 10 лабораторных работ (по одной на каждый блок).
+        </div>
+        <div class="highlight-box" style="border-left-color: var(--color-warning);">
+            <strong>Рубежный контроль:</strong> 2 контрольные работы (Раздел 1 и Раздел 2).
+        </div>
+        <div class="highlight-box success">
+            <strong>Итоговый контроль:</strong> Дифференцированный зачет (Раздел 1) + Экзамен (Раздел 2).
+        </div>
+    </section>
+
+    <!-- Литература -->
+    <section style="margin-top: var(--spacing-xl);">
+        <h2>📖 Рекомендуемая литература</h2>
+        <ul>
+            <li><strong>Основная:</strong> Дейт К. Дж. «Введение в системы баз данных» — 8-е изд. — М.: Вильямс, 2023.</li>
+            <li><strong>Практика SQL:</strong> Бен-Ган И. «Microsoft SQL Server. Высокопроизводительный T-SQL» — СПб.: Питер, 2022.</li>
+            <li><strong>ADO.NET / EF:</strong> Троелсен Э., Джепикс Ф. «C# 10 и .NET 6. Разработка приложений» — М.: Вильямс, 2023.</li>
+        </ul>
+    </section>
+
+    <!-- ПО -->
+    <section style="margin-top: var(--spacing-xl);">
+        <h2>💻 Программное обеспечение</h2>
+        <ul>
+            <li>Microsoft SQL Server 2019 (Express Edition — бесплатно)</li>
+            <li>SQL Server Management Studio (SSMS) или Azure Data Studio</li>
+            <li>Microsoft Visual Studio 2022 (Community Edition — бесплатно)</li>
+            <li>.NET 6 / .NET 8 SDK</li>
+        </ul>
+    </section>
+
+    <!-- Навигация -->
+    <div class="nav-buttons">
+        <a href="index.html" class="nav-btn secondary">← На главную курса</a>
+        <a href="labs/index.html" class="nav-btn">Перейти к лабораторным →</a>
+    </div>
+
+    <!-- Подвал -->
+    <footer class="course-footer">
+        <p>© 2026 IT TOP COLLEGE</p>
+    </footer>
+
+</div>
+
+</body>
+</html>

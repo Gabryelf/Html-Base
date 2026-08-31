@@ -1,0 +1,53 @@
+/* ========================================
+   Header (шапка курса/страницы)
+   ======================================== */
+
+   .course-header {
+    background: linear-gradient(135deg, var(--color-secondary), var(--color-primary-dark));
+    color: var(--text-white);
+    padding: var(--spacing-lg) var(--spacing-xl);
+    border-radius: var(--radius-lg);
+    margin-bottom: var(--spacing-xl);
+}
+
+.course-header h1 {
+    color: var(--text-white);
+    margin-bottom: var(--spacing-xs);
+    font-size: 1.8rem;
+}
+
+.course-header .subtitle {
+    opacity: 0.85;
+    font-size: 1rem;
+    color: var(--text-white);
+}
+
+/* Хлебные крошки */
+.breadcrumb {
+    margin-top: var(--spacing-md);
+    font-size: 0.9rem;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 6px;
+}
+
+.breadcrumb a {
+    color: #aad0ff;
+    text-decoration: none;
+    transition: color var(--transition-fast);
+}
+
+.breadcrumb a:hover {
+    color: var(--text-white);
+    text-decoration: underline;
+}
+
+.breadcrumb .current {
+    color: var(--text-white);
+    font-weight: 600;
+}
+
+.breadcrumb span {
+    color: rgba(255,255,255,0.5);
+}

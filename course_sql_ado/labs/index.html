@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Лабораторные работы — Базы данных и ADO.NET</title>
+    <link rel="stylesheet" href="../../assets/css/main.css" />
+    <style>
+        .lab-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: var(--spacing-lg);
+            margin-top: var(--spacing-lg);
+        }
+        .lab-card {
+            background: var(--bg-card);
+            border-radius: var(--radius-lg);
+            padding: var(--spacing-lg);
+            box-shadow: var(--shadow-sm);
+            border-top: 5px solid var(--color-primary);
+            transition: all var(--transition-normal);
+        }
+        .lab-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-hover);
+        }
+        .lab-card .lab-number {
+            display: inline-block;
+            background: var(--color-primary);
+            color: var(--text-white);
+            padding: 2px 14px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 700;
+        }
+        .lab-card h3 {
+            margin: var(--spacing-sm) 0;
+        }
+        .lab-card .lab-meta {
+            display: flex;
+            gap: var(--spacing-md);
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin: var(--spacing-sm) 0;
+        }
+        .lab-card .lab-desc {
+            font-size: 0.95rem;
+            margin: var(--spacing-sm) 0;
+        }
+        .lab-card .lab-actions {
+            margin-top: var(--spacing-md);
+            display: flex;
+            flex-wrap: wrap;
+            gap: var(--spacing-sm);
+        }
+        .lab-card .lab-actions a {
+            font-size: 0.85rem;
+        }
+        .lab-card:nth-child(1) { border-top-color: var(--color-primary); }
+        .lab-card:nth-child(2) { border-top-color: var(--color-success); }
+        .lab-card:nth-child(3) { border-top-color: #fd7e14; }
+        .lab-card:nth-child(4) { border-top-color: #6f42c1; }
+        .lab-card:nth-child(5) { border-top-color: #20c997; }
+        .lab-card:nth-child(6) { border-top-color: var(--color-danger); }
+        .lab-card:nth-child(7) { border-top-color: #fd7e14; }
+        .lab-card:nth-child(8) { border-top-color: var(--color-info); }
+        .lab-card:nth-child(9) { border-top-color: var(--color-secondary); }
+        .lab-card:nth-child(10) { border-top-color: var(--color-warning); }
+        .lab-status {
+            display: inline-block;
+            padding: 2px 12px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+        .lab-status.draft { background: var(--color-gray-300); color: var(--text-secondary); }
+        .lab-status.ready { background: var(--color-success); color: var(--text-white); }
+        .lab-status.pending { background: var(--color-warning); color: var(--text-secondary); }
+    </style>
+</head>
+<body>
+
+<div class="course-container">
+
+    <!-- Шапка -->
+    <header class="course-header">
+        <div class="header-content">
+            <h1>🧪 Лабораторные работы</h1>
+            <p class="subtitle">Курс «Базы данных и технологии доступа ADO.NET»</p>
+            <nav class="breadcrumb">
+                <a href="../../index.html">Главная курса</a>
+                <span>›</span>
+                <span class="current">Лабораторные работы</span>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Инфо-блок -->
+    <div class="highlight-box info">
+        <strong>📋 Всего лабораторных работ: 10</strong>
+        <p style="margin: var(--spacing-sm) 0 0 0;">
+            Каждая работа содержит задание, критерии оценки и шаблон для оформления.
+            Работы выполняются индивидуально и сдаются в электронном виде.
+        </p>
+    </div>
+
+    <!-- Сетка лабораторных -->
+    <div class="lab-grid">
+
+        <!-- Лабораторная работа №1 -->
+        <div class="lab-card">
+            <span class="lab-number">Лабораторная работа №1</span>
+            <span class="lab-status ready">✓ Готова</span>
+            <h3>Основы SELECT. WHERE, LIKE, ORDER BY</h3>
+            <div class="lab-meta">
+                <span>⏱ 4 часа</span>
+                <span>📅 Неделя 1</span>
+            </div>
+            <p class="lab-desc">
+                Написание запросов на выборку данных с использованием операторов сравнения, LIKE, BETWEEN, IN. Сортировка результатов.
+            </p>
+            <div class="lab-actions">
+                <a href="lab_1/index.html" class="btn btn-primary">Открыть задание</a>
+                <a href="#" class="download-btn">Скачать шаблон</a>
+            </div>
+        </div>
+
+        <!-- Лабораторная работа №2 -->
+        <div class="lab-card">
+            <span class="lab-number">Лабораторная работа №2</span>
+            <span class="lab-status ready">✓ Готова</span>
+            <h3>Многотабличные запросы. JOIN и GROUP BY</h3>
+            <div class="lab-meta">
+                <span>⏱ 4 часа</span>
+                <span>📅 Неделя 2</span>
+            </div>
+            <p class="lab-desc">
+                Соединение таблиц (INNER, LEFT, RIGHT JOIN). Группировка данных. Агрегатные функции COUNT, SUM, AVG.
+            </p>
+            <div class="lab-actions">
+                <a href="#" class="btn btn-primary">Открыть задание</a>
+                <a href="#" class="download-btn">Скачать шаблон</a>
+            </div>
+        </div>
+
+        <!-- Лабораторная работа №3 -->
+        <div class="lab-card">
+            <span class="lab-number">Лабораторная работа №3</span>
+            <span class="lab-status ready">✓ Готова</span>
+            <h3>Подзапросы и CTE. Оконные функции</h3>
+            <div class="lab-meta">
+                <span>⏱ 4 часа</span>
+                <span>📅 Неделя 3</span>
+            </div>
+            <p class="lab-desc">
+                Вложенные запросы (IN, EXISTS, ANY/ALL). Общие табличные выражения (WITH). ROW_NUMBER, RANK.
+            </p>
+            <div class="lab-actions">
+                <a href="#" class="btn btn-primary">Открыть задание</a>
+                <a href="#" class="download-btn">Скачать шаблон</a>
+            </div>
+        </div>
+
+        <!-- Лабораторная работа №4 -->
+        <div class="lab-card">
+            <span class="lab-number">Лабораторная работа №4</span>
+            <span class="lab-status ready">✓ Готова</span>
+            <h3>Хранимые процедуры и функции</h3>
+            <div class="lab-meta">
+                <span>⏱ 4 часа</span>
+                <span>📅 Неделя 4</span>
+            </div>
+            <p class="lab-desc">
+                Создание скалярных и табличных функций. Написание хранимых процедур с параметрами и транзакциями.
+            </p>
+            <div class="lab-actions">
+                <a href="#" class="btn btn-primary">Открыть задание</a>
+                <a href="#" class="download-btn">Скачать шаблон</a>
+            </div>
+        </div>
+
+        <!-- Лабораторная работа №5 -->
+        <div class="lab-card">
+            <span class="lab-number">Лабораторная работа №5</span>
+            <span class="lab-status ready">✓ Готова</span>
+            <h3>Триггеры и безопасность</h3>
+            <div class="lab-meta">
+                <span>⏱ 4 часа</span>
+                <span>📅 Неделя 5</span>
+            </div>
+            <p class="lab-desc">
+                Создание DML-триггеров (AFTER, INSTEAD OF). Логирование изменений. Управление правами доступа.
+            </p>
+            <div class="lab-actions">
+                <a href="#" class="btn btn-primary">Открыть задание</a>
+                <a href="#" class="download-btn">Скачать шаблон</a>
+            </div>
+        </div>
+
+        <!-- Лабораторная работа №6 -->
+        <div class="lab-card">
+            <span class="lab-number">Лабораторная работа №6</span>
+            <span class="lab-status draft">⏳ В разработке</span>
+            <h3>ADO.NET Connected. SqlCommand и DataReader</h3>
+            <div class="lab-meta">
+                <span>⏱ 4 часа</span>
+                <span>📅 Неделя 6</span>
+            </div>
+            <p class="lab-desc">
+                Подключение к БД из C#. Выполнение запросов через SqlCommand. Чтение данных через SqlDataReader.
+            </p>
+            <div class="lab-actions">
+                <a href="#" class="btn btn-primary disabled">Открыть задание</a>
+                <span style="font-size:0.8rem; color:var(--text-muted);">скоро появится</span>
+            </div>
+        </div>
+
+        <!-- Лабораторная работа №7 -->
+        <div class="lab-card">
+            <span class="lab-number">Лабораторная работа №7</span>
+            <span class="lab-status draft">⏳ В разработке</span>
+            <h3>DataAdapter и DataSet (Disconnected)</h3>
+            <div class="lab-meta">
+                <span>⏱ 4 часа</span>
+                <span>📅 Неделя 7</span>
+            </div>
+            <p class="lab-desc">
+                Загрузка данных в DataTable. Работа с DataSet. Обновление данных через DataAdapter.
+            </p>
+            <div class="lab-actions">
+                <a href="#" class="btn btn-primary disabled">Открыть задание</a>
+                <span style="font-size:0.8rem; color:var(--text-muted);">скоро появится</span>
+            </div>
+        </div>
+
+        <!-- Лабораторная работа №8 -->
+        <div class="lab-card">
+            <span class="lab-number">Лабораторная работа №8</span>
+            <span class="lab-status draft">⏳ В разработке</span>
+            <h3>LINQ to SQL</h3>
+            <div class="lab-meta">
+                <span>⏱ 4 часа</span>
+                <span>📅 Неделя 8</span>
+            </div>
+            <p class="lab-desc">
+                Создание модели данных. Написание запросов на LINQ. CRUD-операции через DataContext.
+            </p>
+            <div class="lab-actions">
+                <a href="#" class="btn btn-primary disabled">Открыть задание</a>
+                <span style="font-size:0.8rem; color:var(--text-muted);">скоро появится</span>
+            </div>
+        </div>
+
+        <!-- Лабораторная работа №9 -->
+        <div class="lab-card">
+            <span class="lab-number">Лабораторная работа №9</span>
+            <span class="lab-status draft">⏳ В разработке</span>
+            <h3>Entity Framework Core. Code First</h3>
+            <div class="lab-meta">
+                <span>⏱ 4 часа</span>
+                <span>📅 Неделя 9</span>
+            </div>
+            <p class="lab-desc">
+                Создание модели и контекста. Настройка связей через Fluent API. Миграции.
+            </p>
+            <div class="lab-actions">
+                <a href="#" class="btn btn-primary disabled">Открыть задание</a>
+                <span style="font-size:0.8rem; color:var(--text-muted);">скоро появится</span>
+            </div>
+        </div>
+
+        <!-- Лабораторная работа №10 -->
+        <div class="lab-card">
+            <span class="lab-number">Лабораторная работа №10</span>
+            <span class="lab-status draft">⏳ В разработке</span>
+            <h3>Итоговый проект (WinForms + EF)</h3>
+            <div class="lab-meta">
+                <span>⏱ 4 часа</span>
+                <span>📅 Неделя 10</span>
+            </div>
+            <p class="lab-desc">
+                Комплексное приложение «Склад» или «Библиотека» с использованием Entity Framework и Windows Forms.
+            </p>
+            <div class="lab-actions">
+                <a href="#" class="btn btn-primary disabled">Открыть задание</a>
+                <span style="font-size:0.8rem; color:var(--text-muted);">скоро появится</span>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Навигация -->
+    <div class="nav-buttons">
+        <a href="../../index.html" class="nav-btn secondary">← На главную курса</a>
+        <a href="../syllabus.html" class="nav-btn">Рабочая программа →</a>
+    </div>
+
+    <!-- Подвал -->
+    <footer class="course-footer">
+        <p>© 2026 IT TOP COLLEGE | Лабораторные работы по курсу</p>
+        <p style="font-size:0.8rem; color:var(--text-muted);">
+            Статус: <span style="color:var(--color-success);">✓</span> Готово — 5 работ &nbsp;|&nbsp; <span style="color:var(--color-warning);">⏳</span> В разработке — 5 работ
+        </p>
+    </footer>
+
+</div>
+
+</body>
+</html>
